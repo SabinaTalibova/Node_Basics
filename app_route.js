@@ -17,7 +17,7 @@ module.exports = {
     handleRequest: function(request, response) {
         response.writeHead(200, {'Content-Type': 'text/html'});
 
-        var path1 = url.parse(request.url);
+        var path1 = url.parse(request.url).pathname;
         switch (path1) {
             case '/':
                 renderHTML('./index.html', response);
@@ -30,6 +30,7 @@ module.exports = {
                 response.write('Route not defined');
                 response.end();
         }
+
 
     }
 };
